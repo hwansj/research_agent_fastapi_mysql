@@ -42,7 +42,14 @@ app.include_router(router, prefix=settings.api_prefix, tags=["Research Agent"])
 
 
 @app.get("/", include_in_schema=False)
-def index(request: Request):
+async def index(request: Request):
     """Swagger 없이 사용할 수 있는 통합 웹 UI를 반환합니다."""
-    # 화면 템플릿에 요청 객체와 애플리케이션 정보를 전달합니다.
-    return templates.TemplateResponse("index.html", {"request": request, "app_name": settings.app_name, "version": settings.app_version})
+
+    return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context={
+            "app_name": settings.app_name,
+            "version": settings.app_version,
+        },
+    )

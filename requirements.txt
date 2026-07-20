@@ -10,11 +10,11 @@ pydantic>=2.10.0,<3.0.0
 pydantic-settings>=2.7.0,<3.0.0
 
 # LangChain ReAct와 LangGraph
+# langchain-core는 직접 고정하지 않고 상위 패키지가 호환 버전을 선택하게 합니다.
 langchain>=1.0.0,<2.0.0
-langchain-core>=1.0.0,<2.0.0
 langchain-community>=0.4.0,<1.0.0
 langgraph>=1.0.0,<2.0.0
-langchain-text-splitters>=0.3.0,<1.0.0
+langchain-text-splitters>=1.0.0,<2.0.0
 
 # OpenAI와 Gemini
 langchain-openai>=1.0.0,<2.0.0
@@ -27,9 +27,6 @@ pypdf>=5.0.0,<7.0.0
 pandas>=2.2.0,<3.0.0
 tabulate>=0.9.0,<1.0.0
 
-# MySQL 저장
-pymysql>=1.1.0,<2.0.0
-
 # 웹 검색과 MCP
 DDGS>=9.0.0,<10.0.0
 mcp>=1.20.0,<2.0.0
@@ -37,3 +34,6 @@ mcp>=1.20.0,<2.0.0
 # 테스트
 pytest>=8.3.0,<10.0.0
 httpx>=0.28.0,<1.0.0
+
+# MySQL 저장
+pymysql>=1.1.0,<2.0.0
