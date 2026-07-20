@@ -1,0 +1,22 @@
+# Python 캐시와 가상환경
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 환경변수와 IDE
+.env
+.idea/
+.vscode/
+
+# 테스트와 운영 생성 파일
+.pytest_cache/
+.coverage
+logs/*.log
+reports/*.md
+!reports/.gitkeep
+
+# 벡터 인덱스 캐시
+cache/
+*.faiss
+*.pkl

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main class="container">
+    <header>
+        <p class="eyebrow">FINAL RESEARCH AGENT</p>
+        <h1>{{ app_name }}</h1>
+        <p>ReAct → RAG → A2A → LangGraph → MCP · v{{ version }}</p>
+    </header>
+    <section class="architecture">
+        <span>FastAPI</span><b>→</b><span>LangGraph</span><b>→</b><span>ReAct / RAG / A2A / MCP</span><b>→</b><span>OpenAI / Gemini</span>
+    </section>
+    <section class="panel">
+        <div class="row">
+            <label>모델 공급자<select id="provider"><option value="gemini">Gemini</option><option value="openai">OpenAI</option></select></label>
+            <label>Thread ID<input id="threadId" value="web-user"></label>
+            <label class="check"><input id="fallback" type="checkbox">검색 실패 폴백 강제</label>
+        </div>
+        <label>질문<textarea id="message" rows="6" placeholder="예: 무선이어버드 시장을 심층 조사하고 내부 경쟁사 자료와 비교해줘"></textarea></label>
+        <div class="examples">
+            <button data-q="최신 무선이어버드 시장 동향을 조사해줘">최신 웹 조사</button>
+            <button data-q="경쟁사 CSV를 분석하고 강약점을 비교해줘">경쟁사 CSV</button>
+            <button data-q="내부 문서 근거로 제품 마케팅 전략을 설명해줘">내부 RAG</button>
+            <button data-q="ANC 중심 성장이 사실인지 교차 검증해줘">교차 검증</button>
+            <button data-q="무선이어버드 시장을 다각도로 심층 조사해줘">심층 조사</button>
+        </div>
+        <button id="send" class="primary">통합 에이전트 실행</button>
+    </section>
+    <section class="result-grid">
+        <article class="panel"><h2>최종 답변</h2><div id="status">질문을 입력하세요.</div><pre id="answer"></pre><a id="report" hidden>생성 리포트 다운로드</a><button id="saveDb" hidden>DB에 저장</button></article>
+        <article class="panel"><h2>실행 경로</h2><div id="meta"></div><ol id="trace"></ol></article>
+    </section>
+    <footer><a href="/docs">Swagger</a><a href="/redoc">ReDoc</a><a href="/api/v1/a2a/agents">A2A Cards</a><a href="/api/v1/data/files">Data Files</a></footer>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
