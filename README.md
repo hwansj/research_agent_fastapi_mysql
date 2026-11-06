@@ -1,7 +1,12 @@
-# Research Agent Final System
+# Research Agent (FastAPI · LangGraph · MCP · A2A)
 
-`research_agent_console_project`를 FastAPI 웹 애플리케이션으로 재구성한 최종 프로젝트입니다. 
-원본의 웹 검색, 검색 실패 폴백, 심층 조사, 교차 검증, 경쟁사 CSV 분석, 월별 매출 분석, 보고서 저장, 실습문제 해답 기능을 모두 유지했습니다.
+강의 실습 프로젝트(`research_agent_console_project`)를 바탕으로 한 FastAPI 리서치 에이전트입니다. 질문 유형에 따라 ReAct · RAG · A2A · MCP 네 경로 중 하나로 처리하고, 결과를 보고서로 남깁니다.
+
+## 실습 과제로 추가한 기능
+
+- **MySQL 보고서 저장 도구**: 최종 답변을 MySQL `REPORT` 테이블(주제, 결과, 완료 시각)에 저장하는 MCP 도구를 추가하고, 웹 화면의 '생성 리포트 다운로드' 옆에 'DB에 저장' 버튼을 연결했습니다.
+- 새 엔드포인트를 만들지 않고 기존 도구 호출 엔드포인트(`/api/v1/tools/call`)로 실행되게 해, 다른 기능이 쓰는 호출 구조를 바꾸지 않았습니다.
+- 코드: [app/services/db_service.py](app/services/db_service.py) · [app/mcp_server/tools.py](app/mcp_server/tools.py)
 
 ## 핵심 구조
 
